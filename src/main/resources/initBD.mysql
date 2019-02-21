@@ -1,0 +1,33 @@
+DROP TABLE  IF EXISTS apartaments ;
+CREATE TABLE apartaments(
+   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+   district_id INT NOT NULL ,
+   adress_id INT NOT NULL ,
+   space INT NOT NULL ,
+   rooms INT NOT NULL ,
+   price INT NOT NULL
+ );
+DROP TABLE  IF EXISTS district;
+ CREATE TABLE district(
+   district_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+   name_district VARCHAR(30) NOT NULL
+ )DEFAULT CHAR SET=utf8;
+DROP TABLE  IF EXISTS adress ;
+ CREATE TABLE adress(
+   adress_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+   streets_id INT NOT NULL ,
+   build INT NOT NULL
+ );
+DROP TABLE  IF EXISTS streets ;
+CREATE TABLE streets(
+  streets_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+  name_street VARCHAR(40) NOT NULL UNIQUE
+) DEFAULT CHAR SET=utf8;
+
+INSERT INTO streets VALUE (1,'ул. Пражская'),(2,'ул. Подвысоцкого Профессора'),
+  (3,'Печерский спуск'), (4,'ул. Волынская');
+INSERT INTO adress VALUE (1,1,35),(2,1,22),(3,2,2),(4,3,11),(5,3,10),(6,4,69);
+INSERT INTO district VALUE (1,'Днепровский район'),(2,'Печерский район'),
+  (3,'Соломенский район');
+INSERT INTO apartaments VALUE (0,1,1,45,2,38000),(0,1,2,68,3,57000),
+  (0,2,3,49,2,115000),(0,2,4,42,2,58000),(0,2,5,88,3,105000),(0,3,6,20,1,21500)
